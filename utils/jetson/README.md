@@ -242,3 +242,55 @@ Then, copy `*.trt` to `homesecurity/yolo`, and `*.names` to the `homesecurity` f
 cd ~/jetson-inference
 docker/run.sh -c cam-detect -v /home/salmonjetson/homesecurity/:/homesecurity
 ```
+
+# Jetson Nano Setup Guide
+
+## Prerequisites
+- Ubuntu 18.04 or 16.04 system
+- SDK Manager
+
+## Installation Steps
+
+1. Prepare Ubuntu System and Install SDK Manager
+   - Ensure your system is running Ubuntu 18.04 or 16.04.
+   - Install SDK Manager.
+
+2. Put Nano into Recovery Mode
+   - Connect a jumper between the FC REC and GND pins on the Nano to enter recovery mode.
+
+3. Power On and Connect Nano to PC
+   - Power on the Nano.
+   - Connect the Nano to your PC via USB.
+   - Pay attention to cable selection and usb port choice to avoid frequent disconnections.
+
+4. Install JetPack and Required Libraries
+   - Install JetPack and any necessary libraries using the SDK Manager.
+
+5. Complete OS Installation and Flashing
+   - Follow the prompts in the SDK Manager to install the OS and complete the flashing process.
+   - Remove the jumper from the Nano once the OS flashing is over and wait for the installation to finish.
+
+**Note:** Ensure all steps are followed carefully to avoid any issues during the installation process.
+
+# Enviornment Setup
+For YoloV8 based on Python>=3.8, we need to install python3.8 first.
+
+```
+sudo apt-get install python3.8 python3.8-dev python3.8-distutils python3.8-venv
+```
+
+Create venv using 
+```
+python3.8 -m venv YOLO
+```
+
+Activate the venv
+```
+source ~/vision/bin/activate
+```
+Install YOLO
+```
+pip install ultralytics
+```
+
+
